@@ -31,3 +31,15 @@ The Employee Management System is a web application that allows users to manage 
 - Django
 - Git
 - A modern web browser
+
+
+######################upgradations
+more functionalities 
+1) real time attendance monitoring (kafka)
+2) roles based acess
+3) rest api for scraping
+4) leave management
+5) payroll system
+6) analytics dashboard
+7) event pages /notification
+8) employee of the month portal
