@@ -1,29 +1,51 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
-            background-color: #f4f4f4;
             font-family: 'Roboto', sans-serif;
-            overflow: hidden;
+            margin: 0;
+            background-color: #f0f2f5;
         }
+
+        .navbar {
+            background-color: #343a40; /* Dark background for navbar */
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            letter-spacing: 1px; /* Spacing for branding */
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* White text for navbar links */
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
         .hero {
             position: relative;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
             color: white;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.w3schools.com/html/mov_bbb.mp4');
+            background-size: cover;
         }
+
         .hero video {
             position: absolute;
             top: 50%;
@@ -34,81 +56,182 @@
             height: auto;
             z-index: 1;
             transform: translate(-50%, -50%);
-            filter: brightness(0.7); /* Darken the video for better text visibility */
+            filter: brightness(0.5); /* Darken video */
         }
+
         .hero .content {
             position: relative;
             z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            max-width: 600px; /* Limit content width */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            transition: transform 0.3s;
         }
+
+        .hero .content:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            text-transform: uppercase; /* Uppercase for a professional look */
         }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
         .btn {
-            margin: 10px 5px;
-            padding: 15px 25px;
-            font-size: 16px;
-            border-radius: 30px;
-            transition: background-color 0.3s, transform 0.3s;
+            margin: 10px;
+            padding: 12px 24px;
+            border-radius: 50px; /* Rounded buttons */
+            transition: all 0.3s;
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none; /* No border */
+            color: white; /* White text */
+            font-weight: 600; /* Bold text */
         }
+
         .btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Lift effect */
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            font-weight: bold;
-        }
-        .btn-primary:focus {
-            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 30px;
-        }
+
         .footer {
-            position: absolute;
-            bottom: 20px;
             text-align: center;
             font-size: 14px;
-            color: #ffffff; /* Change footer color for visibility */
-            z-index: 2;
+            color: #343a40; /* Dark text for footer */
+            padding: 20px 0;
+            background-color: #ffffff; /* Light background for footer */
+        }
+
+        .footer .social-icons a {
+            color: #343a40;
+            margin: 0 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .footer .social-icons a:hover {
+            color: #007bff; /* Change color on hover */
+        }
+
+        /* Section styles */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section:nth-child(even) {
+            background-color: #e9ecef; /* Light gray for even sections */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 
     <title>Employee Management System</title>
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Employee Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/all_emp">View Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add_emp">Add Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/remove_emp">Remove Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/update_emp">Update Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/filter_emp">Filter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="hero">
         <video autoplay muted loop>
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> <!-- Replace with a suitable office video URL -->
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="container content">
-            <h1>Employee Management System</h1>
-            <div class="button-container">
-                <a class="btn btn-primary" href="/all_emp" role="button">View Employees</a>
-                <a class="btn btn-primary" href="/add_emp" role="button">Add Employee</a>
-                <a class="btn btn-primary" href="/remove_emp" role="button">Remove Employee</a>
-                <a class="btn btn-primary" href="/update_emp" role="button">Update Employee</a>
-                <a class="btn btn-primary" href="/filter_emp" role="button">Filter</a>
+        <div class="content">
+            <h1>Welcome to the Employee Management System</h1>
+            <h2>Manage your employees efficiently and effectively.</h2>
+            <a class="btn" href="/all_emp" role="button">Get Started</a>
+        </div>
+    </div>
+
+    <div class="section" id="features">
+        <h2>Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-users fa-3x mb-3"></i>
+                        <h5 class="card-title">View Employees</h5>
+                        <p class="card-text">Easily view all your employee records in one place.</p>
+                    </div>
+                </div>
             </div>
-            <div class="footer">
-                &copy; 2024 Employee Management System | All Rights Reserved
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-user-plus fa-3x mb-3"></i>
+                        <h5 class="card-title">Add Employee</h5>
+                        <p class="card-text">Quickly add new employees to your database.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-user-minus fa-3x mb-3"></i>
+                        <h5 class="card-title">Remove Employee</h5>
+                        <p class="card-text">Remove employees from your records easily.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <footer class="footer">
+        &copy; 2024 Employee Management System | All Rights Reserved
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

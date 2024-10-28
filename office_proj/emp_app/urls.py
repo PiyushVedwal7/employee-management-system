@@ -32,7 +32,7 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('emp_profile/<int:emp_id>/', views.emp_profile, name='emp_profile'),
     path('export_emp/', views.export_emp, name='export_emp'),
-    path('!', landing_page, name='landing_page'),
+    path('landing/', landing_page, name='landing_page'),
 
 
 ]

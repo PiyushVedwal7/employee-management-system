@@ -31,4 +31,3 @@ class Employee(models.Model):
     def __str__(self) -> str:
         return "%s %s %s " %(self.first_name,self.last_name,self.phone)
     
-
